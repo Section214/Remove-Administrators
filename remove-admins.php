@@ -158,7 +158,7 @@ if( !class_exists( 'Remove_Administrators' ) ) {
         public function enqueue_jquery() {
             global $pagenow;
 
-        	( 'users.php' == $pagenow ) && wp_enqueue_script( 'jquery' );
+            ( 'users.php' == $pagenow ) && wp_enqueue_script( 'jquery' );
         }
 
 
@@ -171,9 +171,9 @@ if( !class_exists( 'Remove_Administrators' ) ) {
          * @return      array $roles The filtered roles list
          */
         public function edit_editable_roles( $roles ) {
-        	if( isset( $roles['administrator'] ) && !current_user_can( 'update_core' ) ) {
-        		unset( $roles['administrator'] );
-        	}
+            if( isset( $roles['administrator'] ) && !current_user_can( 'update_core' ) ) {
+                unset( $roles['administrator'] );
+            }
         
             return $roles;
         }
@@ -187,26 +187,26 @@ if( !class_exists( 'Remove_Administrators' ) ) {
          * @return
          */
         public function edit_user_list() {
-        	if( !current_user_can( 'update_core' ) ) { ?>
+            if( !current_user_can( 'update_core' ) ) { ?>
 <script type='text/javascript'>
-	jQuery(document).ready(function() {
-		var admin_count;
-		var total_count;
+    jQuery(document).ready(function() {
+        var admin_count;
+        var total_count;
 
-		jQuery(".subsubsub > li > a:contains(Administrator)").each(function() {
-			admin_count = jQuery(this).children('.count').text();
-			admin_count = admin_count.substring(1, admin_count.length - 1);
-		});
-		jQuery(".subsubsub > li > a:contains(Administrator)").parent().remove();
-		jQuery(".subsubsub > li > a:contains(All)").each(function() {
-			total_count = jQuery(this).children('.count').text();
-			total_count = total_count.substring(1, total_count.length - 1) - admin_count;
-			jQuery(this).children('.count').text('('+total_count+')');
-		});
-		jQuery("#the-list > tr > td:contains(Administrator)").parent().remove();
-	});
+        jQuery(".subsubsub > li > a:contains(Administrator)").each(function() {
+            admin_count = jQuery(this).children('.count').text();
+            admin_count = admin_count.substring(1, admin_count.length - 1);
+        });
+        jQuery(".subsubsub > li > a:contains(Administrator)").parent().remove();
+        jQuery(".subsubsub > li > a:contains(All)").each(function() {
+            total_count = jQuery(this).children('.count').text();
+            total_count = total_count.substring(1, total_count.length - 1) - admin_count;
+            jQuery(this).children('.count').text('('+total_count+')');
+        });
+        jQuery("#the-list > tr > td:contains(Administrator)").parent().remove();
+    });
 </script>
-        	<?php }
+            <?php }
         }
     }
 }
