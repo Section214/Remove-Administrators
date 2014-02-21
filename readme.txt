@@ -4,7 +4,7 @@ Donate link: http://pledgie.com/campaigns/17956
 Tags: hide, remove, admin, users, roles, administrator
 Requires at least: 3.0
 Tested up to: 3.3.2
-Stable tag: 1.0
+Stable tag: 1.0.1
 
 Allows admins to hide the admin role from all other roles.
 
@@ -29,6 +29,9 @@ None yet
 Nothing to see here... Move along.
 
 == Changelog ==
+
+= Version 1.0.1 =
+* Code refactoring
 
 = Version 1.0 =
 * Initial release
